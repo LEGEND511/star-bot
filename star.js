@@ -87,7 +87,7 @@ message.author.sendEmbed(embed)
 }
 });
 client.on('message', message => {
-     if (message.content === ".servers") {
+     if (message.content === "~servers") {
      let embed = new Discord.RichEmbed()
   .setColor("#0000FF")
   .addField("**Server: **" , client.guilds.size)
@@ -151,7 +151,7 @@ client.on('message', message => {
 });
 var prefix = "~";
 client.on("message", message => {
-if (message.content === ".server") {
+if (message.content === "~server") {
 if (!message.channel.guild) returnverificationLevel = message.guild.verificationLevel;
 const verificationLevels = ["None","Low","Meduim","High","Extreme"];var Y1 = message.guild.createdAt.getFullYear() - 2000
 var M2 = message.guild.createdAt.getMonth()
