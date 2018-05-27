@@ -938,6 +938,17 @@ if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');
            })
 }
 });
+client.on('message', message => {
+        if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('~boker')){
+if (message.author.id !== '331975722283302912') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
