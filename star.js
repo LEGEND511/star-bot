@@ -1021,7 +1021,7 @@ message.channel.sendEmbed(embed);
 });
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['~help','~help | ~invite','~help | ~Support'];
+    var setGame = ['~help','~help | ~invite','~help | ~support'];
     var i = -1;
     var j = 0;
     setInterval(function (){
