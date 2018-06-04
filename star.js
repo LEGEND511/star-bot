@@ -67,6 +67,7 @@ client.on("message", message => {
 『~bc /برودكاست』
 『~clear /لمسح الشات』
 『chat /لتفعيل الترحيب يجب عمل شات بأسم』
+『member-log /لتفعيل اللوق دخول العضو وخروجه يجب انشاء روم باسم』
 **
 
        ***__🎮 العاب__***
@@ -948,6 +949,24 @@ client.users.forEach(m =>{
 m.sendMessage(args)
 })
 }
+});
+client.on("guildMemberAdd", function(member) {
+    const wc = member.guild.channels.find("name", "member-log")
+        const embed = new Discord.RichEmbed()
+        .setColor('00FF01')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+        .setFooter("User joined ")
+        .setTimestamp()
+        return wc.sendEmbed(embed);
+});
+client.on("guildMemberRemove", function(member) {
+    const wc = member.guild.channels.find("name", "member-log")
+        const embed = new Discord.RichEmbed()
+        .setColor('FF0000')
+        .setAuthor(member.user.tag, member.user.avatarURL)
+        .setFooter("User left ")
+        .setTimestamp()
+        return wc.sendEmbed(embed);
 });
 client.on('ready',  () => {
   console.log('By : Boker');
