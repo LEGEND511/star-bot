@@ -46,6 +46,7 @@ client.on("message", message => {
 『~level / لمعرفة لفلك』
 『~points / لمعرفة نقاطك』
 『~لرؤية الوان بسيطة ولتغير لونك / الوان』
+『~un /لعكس اي كلمة』
 『~tag / لزخرفة الكلمات او الجمل بشكل حلو』
 **
 
@@ -1174,6 +1175,19 @@ message.channel.sendEmbed(embed).then();
        }
                                    
                                    });
+client.on('message', message => {
+    if (message.author.bot) return;
+    if (message.content.indexOf('~un') === 0) {
+        var text = message.content.substring(1);
+        var reversed = '';
+        var i = text.length;
+        while (i > 0) {
+            reversed += text.substring(i - 1, i);
+            i--;
+        }
+        message.reply(reversed);
+    }
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
