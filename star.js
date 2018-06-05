@@ -47,6 +47,7 @@ client.on("message", message => {
 『~points / لمعرفة نقاطك』
 『~لرؤية الوان بسيطة ولتغير لونك / الوان』
 『~un /لعكس اي كلمة』
+『~invites /لرؤية كم جبت عضو للسيرفر』
 『~tag / لزخرفة الكلمات او الجمل بشكل حلو』
 **
 
@@ -1186,6 +1187,16 @@ client.on('message', message => {
             i--;
         }
         message.reply(reversed);
+    }
+});
+client.on('message', message => {
+    if (message.content.startsWith("~invites")) {
+    message.guild.fetchInvites()
+    .then(invites => message.channel.send(`انت جبت   ${invites.find(invite => invite.inviter.id === message.author.id).uses} عضو لهاذا السيرفر`))
+
+
+
+     
     }
 });
 client.on('ready',  () => {
