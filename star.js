@@ -1319,8 +1319,7 @@ if(message.content.split(' ')[0] == '~bc') {
         });
     }
 })
-           if (message.content.startsWith(prefix + "id")) {
-    
+     if (message.content === "~id") {    
                 let member = message.mentions.members.first();
               	 if(!message.channel.guild) return message.reply('**انتا تبغا توقف البوت ولا تستهبل رح السيرفر تشتغل قفطتك هاه يا ذكي**');
     const zmillisCreated = new Date().getTime() - message.author.createdAt.getTime();
