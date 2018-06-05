@@ -1319,44 +1319,25 @@ if(message.content.split(' ')[0] == '~bc') {
         });
     }
 })
-client.on('message', message => {
-                let member = message.mentions.members.first();
-              	 if(!message.channel.guild) return message.reply('**انتا تبغا توقف البوت ولا تستهبل رح السيرفر تشتغل قفطتك هاه يا ذكي**');
-    const zmillisCreated = new Date().getTime() - message.author.createdAt.getTime();
-    const zdaysCreated = zmillisCreated / 1000 / 60 / 60 / 24;
-        moment.locale("ar");
-        var temps = moment(message.author.joinedTimestamp).format('L');
-        var tempss = moment(message.author.createdTimestamp).format('L');
-        var args = message.content.split(" ").slice(1);
-        if(message.content.startsWith(prefix + 'id')) {
-                var men = message.mentions.users.first();
-        var heg;
-        if(men) {
-            heg = men
-        } else {
-            heg = message.author
-        }
-        }
-        let simple;
-        if(heg.simple) {
-            simple = 'simple'
-        } else {
-            simple = 'User'
-        }
-              var embed  = new Discord.RichEmbed()
-              .setAuthor(`${heg.username}#${heg.discriminator}`, heg.avatarURL)
-              .addField(":id: ايديك", `**${heg.id}**`,true)
-              .setDescription(`تلعب الحين: **${(heg.presence.game && heg.presence.game && heg.presence.game.name) || 'ِِ'}**`)
-              .addField('بوت؟',`**${heg.simple}**`,true)
-              .addField("حالتك :",` **${heg.presence.status}** `,true)
-              .addField("نكك",`**${heg.nickname !== null ? ` • Nickname: ${heg.nickname}` : '• No nickname'} **`,true)
-              .addField('🔰 صارلك معنا في السيرفر :', '`'+temps+'`',true)
-              .addField('💠 صارلك في ��لديسك��رد :', '`'+tempss+'`',true)
-              //.addField('ؤولاتك داخل السيرفر',`**${heg.roles.map(roles => `\`${roles.name}\`,`).join(' ')}**`)
-              .setColor('RANDOM')
-		    .setFooter("Star-Bot")              .setThumbnail(message.author.avatarURL)
-              message.channel.sendEmbed(embed)
-           });
+  client.on("message", msg => {
+           var prefix = "~";
+  if(msg.content.startsWith (prefix + "id")) {
+    if(!msg.channel.guild) return msg.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+      const embed = new Discord.RichEmbed();
+  embed.addField("🌪  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
+          .addField("🆔  الايدي", `**[ ${msg.author.id} ]**`, true)
+          .setColor("RANDOM")
+          .setFooter(msg.author.username , msg.author.avatarURL)
+          .setThumbnail(`${msg.author.avatarURL}`)
+          .setTimestamp()
+          .setURL(`${msg.author.avatarURL}`)
+          .addField('🕵  الحالة', `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
+          .addField('🛰   يلعب', `**[ ${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name} ]**`, true)
+          .addField('🎖  الرتب', `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
+          .addField('🤖  هل هو بوت', `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true);
+      msg.channel.send({embed: embed})
+  }
+});
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('discord.gg')){
