@@ -54,11 +54,10 @@ client.on("message", message => {
         ***__🤖 اوامر البوت__***
 **
 『~ping / يعرض لك سرعه اتصال البوت』
-『~uptime / يعرض لك صار للبوت كم شغال』
 『~support / سيرفر الدعم القني و المساعده』
 『~invite / اضافه البوت』
 『~members / حاله الاعضاء』
-『~infobot / معلومات عن البوت』
+『~stats / معلومات عن البوت و كم صار للبوت شغال』
 **    
         
         ***__:radioactive: أوامر الأداره__***
@@ -436,18 +435,6 @@ client.on('guildMemberAdd', member => {
     });
 client.on('ready', () => {
   console.log('By Boker-PS Enjoy');
-});
-client.on('message', message => {
-    if(message.content === "~infobot") {
-        const embed = new Discord.RichEmbed()
-        .setColor("#00FFFF")
-  .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
-         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
-        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
-        .addField('**:globe_with_meridians: عدد السيرفرات**' , `${client.guilds.size}`, true)
-        .addField('**عدد المستخدمين 👥 **' , `${client.users.size}`, true)
-               message.channel.sendEmbed(embed);
-           }
 });
 client.on('message', message => {
     if (message.content == "~اسئلني") {
@@ -828,10 +815,9 @@ client.on('message', message => {
 
     }
   });
-  client.on('message', message => {
-     var prefix = "~"
-if (message.content.startsWith(prefix + "uptime")) {
-    let uptime = client.uptime;
+client.on("message",function(message) {
+    if(message.content.startsWith(prefix + "stats")) {
+           let uptime = client.uptime;
 
     let days = 0;
     let hours = 0;
@@ -865,23 +851,29 @@ if (message.content.startsWith(prefix + "uptime")) {
         if (uptime < 1000)  notCompleted = false;
 
     }
-
-    message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`");
-
-
-}
+let ms = 1000;
+let v1 = new Discord.RichEmbed()
+  v1.setTimestamp(new Date())
+  v1.setColor("RED")
+  v1.setDescription('***__ Collecting Data __***')
+  v1.setFooter("~ | StarBot |") 
+let heroo = new Discord.RichEmbed()
+.setColor('RANDOM')
+.setTimestamp(new Date())
+.setThumbnail(client.user.avatarURL)
+.setAuthor(client.user.username,client.user.avatarURL)
+.addField("MyPrefix :",`**[ ${prefix} ]**`,true)
+.addField("Guilds :","**[ "+client.guilds.size+" ]**",true)
+.addField("Channels :","**[ "+client.channels.size+" ]**",true)
+.addField("Users :","**[ "+client.users.size+" ]**",true)
+.addField("MyName : ","**[ "+client.user.username+" ]**",true)
+.addField("MyID :","**[ "+client.user.id+" ]**",true)
+.addField("RamUsage :",`**[ ${(process.memoryUsage().rss / 1048576).toFixed()}MB ]**`,true)
+.addField("UpTime :",`**[** **Days:** \`${days}\` **Hours:** \`${hours}\` **Minutes:** \`${minutes}\` **Seconds:** \`${seconds}\` **]**`,true)
+.setFooter("Star-Bot. |")
+  message.channel.send({embed:v1}).then(m => m.edit({embed:heroo})),ms; 
+    }
 });
-  function timeCon(time) {
-    let days = Math.floor(time % 31536000 / 86400)
-    let hours = Math.floor(time % 31536000 % 86400 / 3600)
-    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
-    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
-    days = days > 9 ? days : '0' + days
-    hours = hours > 9 ? hours : '0' + hours
-    minutes = minutes > 9 ? minutes : '0' + minutes
-    seconds = seconds > 9 ? seconds : '0' + seconds
-    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
-};
 client.on('message', msg => {
 if (msg.content.includes('ترحيب')) {
 msg.reply(`**𝓦𝓔𝓛𝓒𝓞𝓜𝓔**
