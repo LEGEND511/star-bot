@@ -1324,7 +1324,6 @@ client.on('message', message => {
               	 if(!message.channel.guild) return message.reply('**انتا تبغا توقف البوت ولا تستهبل رح السيرفر تشتغل قفطتك هاه يا ذكي**');
     const zmillisCreated = new Date().getTime() - message.author.createdAt.getTime();
     const zdaysCreated = zmillisCreated / 1000 / 60 / 60 / 24;
-          dateFormat('dd/mm/yyy');
         moment.locale("ar");
         var temps = moment(message.author.joinedTimestamp).format('L');
         var tempss = moment(message.author.createdTimestamp).format('L');
