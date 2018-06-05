@@ -69,7 +69,8 @@ client.on("message", message => {
 『~bc /برودكاست』
 『~clear /لمسح الشات』
 『chat /لتفعيل الترحيب يجب عمل شات بأسم』
-『log /لتفعيل اللوق』
+『log /لتفعيل اللوق يجب عمل شات بأسم』
+『reports /لتفعيل الابلاغ يجب عمل شات بأسم』
 **
 
        ***__🎮 العاب__***
@@ -1301,7 +1302,7 @@ if(!message.guild.channels.find("name","reports")) return message.channel.send('
 var Eror = new Discord.RichEmbed()
    .setTimestamp()
    .setDescription(`**الرجاء اكتب بلاغك بعد الأمر **`)
-   if(!a8tra7.join(" ")) return message.channel.send(Eror).then(message => {message.delete(50000)});
+   if(!Report.join(" ")) return message.channel.send(Eror).then(message => {message.delete(50000)});
    var ThxForSug = new Discord.RichEmbed()
    .setTitle(`:white_check_mark: Success!`)
    .setTimestamp()
@@ -1310,7 +1311,7 @@ var Eror = new Discord.RichEmbed()
    var Sure = new Discord.RichEmbed()
    .setTimestamp()
    .setDescription(`**هل انت متأكد من ارسال بلاغك معك دقيقه قبل الالغاء**`)
-.addField(`التبليغ : `, a8tra7)
+.addField(`التبليغ : `, Report)
 message.channel.sendEmbed(Sure).then(msg => {
     msg.react('❎')
 .then(() => msg.react('✅'))
@@ -1322,7 +1323,7 @@ let Yes = msg.createReactionCollector(YesFilter, { time: 60000 });
 let No = msg.createReactionCollector(NoFilter, { time: 60000 });
  
 Yes.on("collect", r => {
-   var ala8tra7 = new Discord.RichEmbed()
+   var alReport = new Discord.RichEmbed()
    .setTimestamp()
    .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL)
@@ -1330,7 +1331,7 @@ Yes.on("collect", r => {
    .setTitle(`البلاغ ⤵`)
    .setURL(`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=21469585838&scope=bot`)
    .setDescription(`**|~~>~~** ${Report} **~~<~~|**\n    **المبلغ : __<@${Reporter}>__**`)
-   A8tra7Room.send(ala8tra7)
+   A8tra7Room.send(alReport)
    message.channel.sendEmbed(ThxForSug).then(message => {message.delete(2000)})
 msg.delete();
 })
