@@ -1291,6 +1291,56 @@ client.on('message', message => {
      
     }
 });
+ client.on('message', message => {
+if(message.content.startsWith(prefix +'rp')) {
+      const A8tra7Room = message.guild.channels.find("name", "reports")
+      if(!message.channel.guild) return message.reply(`**هذا الأمر فقط ل السيرفرات :x: **`);
+   let Report = message.content.split(" ").slice(1);
+   var Reporter = message.author.id
+if(!message.guild.channels.find("name","reports")) return message.channel.send('**لايوجد روم اقتراح \`reports\` **')
+var Eror = new Discord.RichEmbed()
+   .setTimestamp()
+   .setDescription(`**الرجاء اكتب بلاغك بعد الأمر **`)
+   if(!a8tra7.join(" ")) return message.channel.send(Eror).then(message => {message.delete(50000)});
+   var ThxForSug = new Discord.RichEmbed()
+   .setTitle(`:white_check_mark: Success!`)
+   .setTimestamp()
+   .setDescription(`**شكراً على بلاغك !**`)
+.addField(`بلاغك : `, Report)
+   var Sure = new Discord.RichEmbed()
+   .setTimestamp()
+   .setDescription(`**هل انت متأكد من ارسال بلاغك معك دقيقه قبل الالغاء**`)
+.addField(`التبليغ : `, a8tra7)
+message.channel.sendEmbed(Sure).then(msg => {
+    msg.react('❎')
+.then(() => msg.react('✅'))
+ 
+let YesFilter = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
+let NoFilter = (reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id;
+ 
+let Yes = msg.createReactionCollector(YesFilter, { time: 60000 });
+let No = msg.createReactionCollector(NoFilter, { time: 60000 });
+ 
+Yes.on("collect", r => {
+   var ala8tra7 = new Discord.RichEmbed()
+   .setTimestamp()
+   .setColor('RANDOM')
+   .setThumbnail(message.author.avatarURL)
+   .setFooter(`${message.author.username}#${message.author.discriminator}`)
+   .setTitle(`البلاغ ⤵`)
+   .setURL(`https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&permissions=21469585838&scope=bot`)
+   .setDescription(`**|~~>~~** ${Report} **~~<~~|**\n    **المبلغ : __<@${Reporter}>__**`)
+   A8tra7Room.send(ala8tra7)
+   message.channel.sendEmbed(ThxForSug).then(message => {message.delete(2000)})
+msg.delete();
+})
+No.on("collect", r => {
+message.channel.send('**تم الغاء اقتراحك بنجاح :white_check_mark: **').then(message => {message.delete(2000)})
+msg.delete();
+})
+})
+}
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
