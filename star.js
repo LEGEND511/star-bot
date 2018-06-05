@@ -1359,10 +1359,6 @@ if(message.content.split(' ')[0] == '~bc') {
 		    .setFooter("Star-Bot")              .setThumbnail(message.author.avatarURL)
               message.channel.sendEmbed(embed)
            }
-
-    
-         
-       });
 client.on('message', message => {
     var args = message.content.split(/[ ]+/)
     if(message.content.includes('discord.gg')){
