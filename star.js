@@ -1281,12 +1281,10 @@ client.on('message', message => {
         message.reply(reversed);
     }
 });
-client.on('message', message => {
-      const embed = new Discord.RichEmbed();    
+client.on('message', message => {  
     if (message.content.startsWith("~invites")) {
     message.guild.fetchInvites()
     .then(invites => message.channel.send(`**انت جبت   ${invites.find(invite => invite.inviter.id === message.author.id).uses} عضو لهاذا السيرفر**`))
-      msg.channel.send({embed: embed})
 
      
     }
