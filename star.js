@@ -956,7 +956,7 @@ client.on("roleCreate", rc => {
   channel.sendEmbed(embed)
   }
   });
-  //By S Codes
+  //By Star Bot
   client.on("roleDelete",  rd => {
   const channel = rd.guild.channels.find("name", "log")
   if(channel) {
