@@ -334,69 +334,67 @@ client.on('message', message => {
   message.channel.sendMessage(Math.floor(Math.random() * 50));
     }
 });
-  client.on('message', async message =>{
-  var prefix = "=";
-if (message.author.omar) return;
-if (!message.content.startsWith(prefix)) return;
-if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('MANAGE_ROLES'));
-if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
-var command = message.content.split(" ")[0];
-command = command.slice(prefix.length);
-var args = message.content.split(" ").slice(1);
-    if(command == "mute") {
-    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
-    if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
-    let muterole = message.guild.roles.find(`name`, "muted");
-    //start of create role
-    if(!muterole){
-      try{
-        muterole = await message.guild.createRole({
-          name: "muted",
-          color: "#000000",
-          permissions:[]
-        })
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(muterole, {
-            SEND_MESSAGES: false,
-            ADD_REACTIONS: false
-          });
-        });
-      }catch(e){
-        console.log(e.stack);
-      }
+client.on('message', eyad => {
+  if (eyad.content.startsWith('=mute')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+let men = eyad.mentions.users.first()
+let mas = eyad.author
+if(!men) return eyad.channel.send('`منشن الشخص الذي تريد ان تعطيه ميوت كتابي` ');
+eyad.guild.channels.forEach(c => {
+c.overwritePermissions(men.id, {
+          SEND_MESSAGES: false
+})
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+لقد تم اعطائك ميوت كتابي
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+لقد تم اعطائه الميوت الكتابي بنجاح
+بواسطة : <@${eyad.author.id}> `)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
     }
-    //end of create role
-    let reason = message.content.split(" ").slice(2).join(" ");
-    await(tomute.addRole(muterole.id));
-    message.reply(`>بواسطة<@${tomute.id}> تم اعطائه ميوت`);
-}
-if (command == "unmute") {
-if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
-let user = message.mentions.users.first();
-let muteRole = message.guild.roles.find("name", "muted");
-if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
-let reason = message.content.split(" ").slice(2).join(" ");
-message.guild.member(user).removeRole(muteRole);
-const unmuteembed = new Discord.RichEmbed()
+})
+client.on('message', eyad => {
+  if (eyad.content.startsWith('=unmute')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+ let men = eyad.mentions.users.first()
+ let mas = eyad.author
+ if(!men) return eyad.channel.send('`منشن الشخص الذي تريد فك الميوت عنه `');
+ eyad.guild.channels.forEach(c => {
+ c.overwritePermissions(men.id, {
+         SEND_MESSAGES: true
+         })
+    })
+const embed = new Discord.RichEmbed()
 .setColor("RANDOM")
-.setAuthor(`UnMute!`, user.displayAvatarURL)
-.setThumbnail(user.displayAvatarURL)
-.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
-.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
-.addField("User", user, true)  
-message.channel.send({embed : unmuteembed}).then(msg => msg.delete(5000));
-var unmuteembeddm = new Discord.RichEmbed()
-.setDescription(`تم فك الميوت عنك ${user}`)
-.setAuthor(`UnMute!`, user.displayAvatarURL)
+.setDescription(`**
+ <@${men.id}>
+تم فك الميوت الكتابي 
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
 .setColor("RANDOM")
-  user.send( unmuteembeddm);
-}
-});
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+تم فك الميوت الكتابي 
+بواسطة : <@${eyad.author.id}>
+`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
+    }
+})
 var prefix = "=";
 client.on('message', message => {
   if (message.author.bot) return;
