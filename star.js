@@ -1074,6 +1074,40 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
               }
             }
        });
+client.on('message', message => {
+  if (message.author.id === client.user.id) return;
+  if (message.guild) {
+ let embed = new Discord.RichEmbed()
+  let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == '=bc') {
+  if (!args[1]) {
+message.channel.send("**=bc <message>**");
+return;
+}
+      message.guild.members.forEach(m => {
+ if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
+          var bc = new Discord.RichEmbed()
+          .setAuthor(message.author.username, message.author.avatarURL)
+          .addField(' الـسيرفر', `${message.guild.name}`,true)
+          .addField(' الـمرسل ', `${message.author.username}!${message.author.discriminator}`,true)
+          .addField(' الرسالة ', args)
+          .setThumbnail(message.guild.iconURL)
+          .setColor('RANDOM')
+          m.send(`${m}`,{embed: bc});
+      });
+      const AziRo = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setTitle('✅| جاري ارسال رسالتك ')
+      .addBlankField(true)
+      .addField('♨| عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)
+      .addField('📝| الرسالة ', args)
+      .setColor('RANDOM')
+      message.channel.sendEmbed(embed);
+  }
+  } else {
+      return;
+  }
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
@@ -1085,7 +1119,7 @@ client.on('message', message => {
 
     let args = message.content.split(' ').slice(1).join(' ');
      if(!message.channel.guild) return;
-if(message.content.split(' ')[0] == '=bc') {
+if(message.content.split(' ')[0] == '=bc2') {
          message.react("✔️")
    let embed = new Discord.RichEmbed()
     .setColor("#FF00FF")
