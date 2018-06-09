@@ -1133,7 +1133,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
 .addField('**● Sender  :**', `*** → ${message.author.username}#${message.author.discriminator}***`)
             .addField('***● Server  :***', `*** → ${message.guild.name}***`)               
     .setColor('#ff0000')
-                 .addField('ّ', args)
+                 .addField('● Message', args)
             m.send(``,{embed: bc});
         });
     }
