@@ -67,6 +67,7 @@ client.on("message", message => {
 『=mute /ميوت』
 『=unmute /فك الميوت』
 『=bc /برودكاست』
+『=bc2 /برودكاست بشكل اخر』
 『=clear /لمسح الشات』
 『chat /لتفعيل الترحيب يجب عمل شات بأسم』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
@@ -1079,9 +1080,9 @@ client.on('message', message => {
   if (message.guild) {
  let embed = new Discord.RichEmbed()
   let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == '=bc') {
+if(message.content.split(' ')[0] == '=bc2') {
   if (!args[1]) {
-message.channel.send("**=bc <message>**");
+message.channel.send("**=bc2 <message>**");
 return;
 }
       message.guild.members.forEach(m => {
@@ -1119,7 +1120,8 @@ client.on('message', message => {
 
     let args = message.content.split(' ').slice(1).join(' ');
      if(!message.channel.guild) return;
-if(message.content.split(' ')[0] == '=bc2') {
+if(message.content.split(' ')[0] == '=bc') {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
          message.react("✔️")
    let embed = new Discord.RichEmbed()
     .setColor("#FF00FF")
