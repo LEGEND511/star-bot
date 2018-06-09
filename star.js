@@ -1074,22 +1074,6 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
               }
             }
        });
-client.on('message', ra3d => {
-var prefix = "=";
-                        let args = ra3d.content.split(" ").slice(1).join(" ")
-if(ra3d.content.startsWith(prefix + 'dc')) {
-    if(!args) return ra3d.channel.send('`يرجي اختيار كم لون تريد حذفه`');
-             if (!ra3d.member.hasPermission('MANAGE_ROLES')) return ra3d.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
-              ra3d.channel.send(`**❎ |Deleted __${args}__ Colors**`);
-                  setInterval(function(){})
-                    let count = 0;
-                    let ecount = 0;
-          for(let x = 1; x < `${parseInt(args)+1}`; x++){
-            ra3d.guild.deleteRole({name:x,
-              color: 'RANDOM'})
-              }
-            }
-       });
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
