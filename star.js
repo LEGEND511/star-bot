@@ -1075,18 +1075,18 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
               }
             }
        });
-client.on('message', boker => {
+client.on('message', message => {
 var prefix = "=";
-                        let args = bok.content.split(" ").slice(1).join(" ")
-if(bok.content.startsWith(prefix + 'dc')) {
-    if(!args) return bok.channel.send('`يرجي اختيار كم تريد حذف لون `');
-             if (!bok.member.hasPermission('MANAGE_ROLES')) return bok.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
-              bok.channel.send(`**❎ |Deleted __${args}__ Colors**`);
+                        let args = message.content.split(" ").slice(1).join(" ")
+if(message.content.startsWith(prefix + 'dc')) {
+    if(!args) return message.channel.send('`يرجي اختيار كم تريد حذف لون `');
+             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
+              message.channel.send(`**❎ |Deleted __${args}__ Colors**`);
                   setInterval(function(){})
                     let count = 0;
                     let ecount = 0;
           for(let x = 1; x < `${parseInt(args)+1}`; x++){
-            bok.guild.deleteRole({name:x,})
+            message.guild.deleteRole({name:x,})
               }
             }
        });
