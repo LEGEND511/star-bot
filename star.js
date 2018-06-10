@@ -1086,7 +1086,7 @@ if(message.content.startsWith(prefix + 'dc')) {
                     let count = 0;
                     let ecount = 0;
           for(let x = 1; x < `${parseInt(args)+1}`; x++){
-    msg.member.removeRole({name:x,})
+    message.member.removeRole({name:x,})
               }
             }
        });
