@@ -1076,21 +1076,6 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
             }
        });
 client.on('message', message => {
-var prefix = "=";
-                        let args = message.content.split(" ").slice(1).join(" ")
-if(message.content.startsWith(prefix + 'dc')) {
-    if(!args[0]) return message.channel.send('`يرجي اختيار كم تريد حذف لون `');
-             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
-              message.channel.send(`**❎ |Deleted __${args}__ Colors**`);
-                  setInterval(function(){})
-                    let count = 0;
-                    let ecount = 0;
-          for(let x = 1; x < `${parseInt(args)+1}`; x++){
-    message.member.removeRole({name:x,})
-              }
-            }
-       });
-client.on('message', message => {
             if (message.author.id === client.user.id) return;
         if (message.guild) {
        let embed = new Discord.RichEmbed()
