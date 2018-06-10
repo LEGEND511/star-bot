@@ -1131,6 +1131,25 @@ if(message.content.startsWith(prefix + "autorole")){
 }
 
    });
+client.on('message', msg =>{
+  if(msg.channel.type !=="text") return;
+msg.content = msg.content.trim();
+msg.args = msg.content.split(' ').slice(1);
+msg.pre = "=";
+  var message=msg
+if(msg.content.indexOf(msg.pre+'color')==0){
+var role = msg.mentions.roles.first() || msg.guild.roles.find('name', msg.args) || msg.guild.roles.get(msg.args);
+  if(!role || typeof role !== "number") {
+  msg.reply(` **اسف, لا يمكنني ايجاد هذا اللون**`)
+  }else{
+message.guild.member(msg.author).roles.forEach(r =>{
+if(typeof r.name == "number") msg.member.removeRole(r.id)
+})
+msg.member.addRole(role.id);
+msg.reply(` **تم, تم اضافة اللون**`)
+  }
+}
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
