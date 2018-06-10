@@ -45,7 +45,6 @@ client.on("message", message => {
 『=dt / يعرض الوقت في الامارات و مكه المكرمه و مصر و التاريخ』
 『=level / لمعرفة لفلك』
 『=points / لمعرفة نقاطك』
-『=cc / لأنشاء الوان بلعدد الي تريده』
 『=un /لعكس اي كلمة』
 『=invites /لرؤية كم جبت عضو للسيرفر』
 『=tag / لزخرفة الكلمات او الجمل بشكل حلو』
@@ -64,11 +63,11 @@ client.on("message", message => {
 **
 『=kick / كيك』
 『=ban / باند』
-『=rbans / لفك الباند عن كل المبندين』
 『=mute /ميوت』
 『=unmute /فك الميوت』
 『=bc /برودكاست』
 『=bc2 /برودكاست بشكل اخر』
+『=cc / لأنشاء الوان بلعدد الي تريده』
 『=clear /لمسح الشات』
 『chat /لتفعيل الترحيب يجب عمل شات بأسم』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
@@ -1076,6 +1075,21 @@ if(ra3d.content.startsWith(prefix + 'cc')) {
               }
             }
        });
+client.on('message', boker => {
+var prefix = "=";
+                        let args = bok.content.split(" ").slice(1).join(" ")
+if(bok.content.startsWith(prefix + 'dc')) {
+    if(!args) return bok.channel.send('`يرجي اختيار كم تريد حذف لون `');
+             if (!bok.member.hasPermission('MANAGE_ROLES')) return bok.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
+              bok.channel.send(`**❎ |Deleted __${args}__ Colors**`);
+                  setInterval(function(){})
+                    let count = 0;
+                    let ecount = 0;
+          for(let x = 1; x < `${parseInt(args)+1}`; x++){
+            bok.guild.deleteRole({name:x,})
+              }
+            }
+       });
 client.on('message', message => {
             if (message.author.id === client.user.id) return;
         if (message.guild) {
@@ -1116,13 +1130,6 @@ client.on('message', message => {
             return;
         }
     });
-client.on('msg', ( msg ) => {
-    if( msg.content == '=rbans' ){
-        if( !msg.member.hasPermission( 'ADMINISTRATOR' ) ) return msg.reply(' You Dont Have Permission Please Try Again Later😉🤙');
-        msg.guild.fetchBans().forEach(u=>msg.guild.unban(u));
-        msg.reply(' All Bans Has Been Removed ✅ .');
-    }
-});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
