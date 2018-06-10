@@ -1079,7 +1079,7 @@ client.on('message', message => {
 var prefix = "=";
                         let args = message.content.split(" ").slice(1).join(" ")
 if(message.content.startsWith(prefix + 'dc')) {
-    if(!args) return message.channel.send('`يرجي اختيار كم تريد حذف لون `');
+    if(!args[0]) return message.channel.send('`يرجي اختيار كم تريد حذف لون `');
              if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.sendMessage('`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**'); 
               message.channel.send(`**❎ |Deleted __${args}__ Colors**`);
                   setInterval(function(){})
