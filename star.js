@@ -1115,6 +1115,21 @@ client.on('message', message => {
             return;
         }
     });
+client.on("message", async message => {
+           let args = message.content.split(' ').slice(1)
+    const fs = require('fs-extra');
+  let newautorole = JSON.parse(fs.readFileSync("./autorole.json", "utf8"));
+if(message.content.startsWith(prefix + "autorole")){
+ if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")){return message.reply('**\`ADMINISTRATOR\`لا توجد لديك خاصية`**').catch(console.error);
+    } else {
+     if(!args.join(' ')) return message.channel.send("** اكتب اسم الرتبه**")
+     newautorole[message.guild.id] = {"autorole": args.join(" ")};
+     message.channel.send("لقد تم تفعيل اوتو رول`"+ args.join(" ") + "`👌");
+     fs.writeFile("./autorole.json", JSON.stringify(newautorole), (err) => {if (err) console.error(err);});
+   }
+}
+
+   });
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
