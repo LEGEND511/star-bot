@@ -47,6 +47,7 @@
       "random-number": "0.0.9",
       "ytdl-core": "0.20.2",
       "figlet": "1.2.0",
-      "snekfetch": "4.0.0"
+      "snekfetch": "4.0.0",
+      "fs-extra": "6.0.1"
     }
   }
