@@ -1151,7 +1151,7 @@ var mentionned = message.mentions.members.first();
  }
 moment.locale('ar-TN');
       var id = new  Discord.RichEmbed()
-    .setColor("!0a0909")
+    .setColor("RANDOM")
     .setAuthor(message.author.username, message.author.avatarURL) 
 .addField(': دخولك لديسكورد قبل', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
 .addField(': انضمامك لسيرفر قبل', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)
