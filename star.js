@@ -70,6 +70,7 @@ client.on("message", message => {
 『=bc2 /برودكاست بشكل اخر』
 『=cc / لأنشاء الوان بلعدد الي تريده』
 『=clear /لمسح الشات』
+『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『chat /لتفعيل الترحيب يجب عمل شات بأسم』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -1161,6 +1162,21 @@ moment.locale('ar-TN');
 })
 }       
 });
+client.on('message', message => {
+if(message.content.startsWith(prefix + 'move all')) {
+ if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
+   if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
+if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
+ var author = message.member.voiceChannelID;
+ var m = message.guild.members.filter(m=>m.voiceChannel)
+ message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
+ m.setVoiceChannel(author)
+ })
+ message.channel.send(`**تم سحب جميع الأعضاء إليك**`)
+
+
+ }
+   });
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
