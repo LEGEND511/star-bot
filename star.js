@@ -876,14 +876,6 @@ let heroo = new Discord.RichEmbed()
   message.channel.send({embed:v1}).then(m => m.edit({embed:heroo})),ms; 
     }
 });
-client.on('message', msg => {
-if (msg.content.includes('ترحيب')) {
-msg.reply(`**𝓦𝓔𝓛𝓒𝓞𝓜𝓔**
-
-منٌوِر بّيّنٌ ٱخٌوِٱنٌك ٱتُمنٌٱ تُقَضيّ ٱجَمل ٱلٱوِقَٱتُ معنٌٱ :kiss: :rose:
-`)
-}
-});
 sql.open("./score.sqlite");
 
 
