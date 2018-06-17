@@ -1360,7 +1360,7 @@ ctx.font = '35px Aeland';
  
 })
 client.on('message', eyad => {
-if(eyad.content.startsWith(prefix + 'vb')) {
+  if (eyad.content.startsWith('=vb')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
