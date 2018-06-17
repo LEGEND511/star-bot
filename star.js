@@ -71,11 +71,7 @@ client.on("message", message => {
 『=bc2 /برودكاست بشكل اخر』
 『=cc / لأنشاء الوان بلعدد الي تريده』
 『=clear /لمسح الشات』
-『=setWlc /لتفعيل الترحيب』
-『=setWlc style embed /لتفعيل الترحيب الكتابي بامبد』
-『=setWlc style image /لتفعيل الترحيب بلصورة』
-『=setWlc channel /لتحديد مكان ارسال الترحيب』
-『=setWlc msg /لكتابة رسالة الترحيب ل الترحيب الكتابي بامبد』
+『=setWlc /لتفعيل الترحيب ورؤية انواع الترحيب』
 『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -1220,9 +1216,11 @@ const fs = require("fs") // npm i fs
  
             if(!sets) {
                 message.channel.send(`**Usage:
-            ${prefix}setWlc style <text, image, embed>
-            ${prefix}setWlc msg <message>
-            ${prefix}setWlc channal <channel name>**`)
+           لتفعيل الترحيب بلصورة / ${prefix}setWlc style image
+           لتفعيل الترحيب الكتابي بامبد / ${prefix}setWlc style embed
+           لتفعيل الترحيب الكتابي  / ${prefix}setWlc style text
+          لكتابة رسالة الترحيب ل الترحيب الكتابي بامبد / ${prefix}setWlc msg
+          لتحديد مكان ارسال الترحيب / ${prefix}setWlc channal**`)
             }
  
             if(!mothed) {
