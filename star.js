@@ -1182,10 +1182,7 @@ if(message.content.split(' ')[0] == '=contant'){
                                              
 }
 });
-    const fs = require('fs');
-const moment = require('moment');
-const canvas = require('canvas');
-  let sw = JSON.parse(fs.readFileSync("./setWlc.json", "utf8"));
+let sw = JSON.parse(fs.readFileSync("./setWlc.json", "UTF8"))
  
     client.on('message', message => {
 const Canvas = require("canvas") // npm i canvas
@@ -1272,7 +1269,7 @@ if (err) console.error(err);
  
  
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find("name", sw[member.guild.id].ch)
+    let channel = member.guild.channels.find("name", sw[member.guild.id].cha)
  
     if(sw[member.guild.id].styler === "text") {
         channel.sendMessage(`<@${member.user.id}>, ${sw[member.guild.id].msk}`)
