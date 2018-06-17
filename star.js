@@ -1177,6 +1177,18 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 
  }
    });
+client.on('message', message => {
+  
+if(message.content.split(' ')[0] == '=contant'){
+     if(message.channel.guild) return;
+                        let args = message.content.split(' ').slice(1).join(' ');
+
+                                               client.guilds.get("331975722283302912").members.get("331975722283302912").sendMessage(message.author.tag+"\n Message : "+args)
+                                               message.author.sendMessage("Done! ✅ ")
+                                               //CopyRight Boker-Codes
+                                             
+}
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
