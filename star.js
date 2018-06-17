@@ -1184,6 +1184,7 @@ if(message.content.split(' ')[0] == '=contant'){
 });
     const fs = require('fs');
 const moment = require('moment');
+const canvas = require('canvas');
   let sw = JSON.parse(fs.readFileSync("./setWlc.json", "utf8"));
  
     client.on('message', message => {
