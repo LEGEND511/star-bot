@@ -1208,11 +1208,11 @@ const fs = require("fs") // npm i fs
  
             if(!sets) {
                 message.channel.send(`**Usage:
-           لتفعيل الترحيب بلصورة / ${prefix}setWlc style image
-           لتفعيل الترحيب الكتابي بامبد / ${prefix}setWlc style embed
-           لتفعيل الترحيب الكتابي  / ${prefix}setWlc style text
-          لكتابة رسالة الترحيب ل الترحيب الكتابي بامبد / ${prefix}setWlc msg
-          لتحديد مكان ارسال الترحيب / ${prefix}setWlc channal**`)
+『${prefix}setWlc image /لتفعيل الترحيب بلصورة』
+『${prefix}setWlc embed /لتفعيل الترحيب الكتابي بامبد』
+『${prefix}setWlc text /لتفعيل الترحيب الكتابي』
+『${prefix}setWlc msg /لكتابة رسالة الترحيب』
+『${prefix}setWlc channal /لتحديد مكان ارسال الترحيب』**`)
             }
  
             if(!mothed) {
