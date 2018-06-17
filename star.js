@@ -1194,7 +1194,8 @@ if(message.content.split(' ')[0] == '=contant'){
                                              
 }
 });
-let sw = JSON.parse(fs.readFileSync("./setWlc.json", "UTF8"))
+    const fs = require('fs');
+  let sw = JSON.parse(fs.readFileSync("./setWlc.json", "utf8"));
  
     client.on('message', message => {
 const Canvas = require("canvas") // npm i canvas
