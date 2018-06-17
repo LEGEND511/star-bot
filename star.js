@@ -71,6 +71,7 @@ client.on("message", message => {
 『=bc2 /برودكاست بشكل اخر』
 『=cc / لأنشاء الوان بلعدد الي تريده』
 『=clear /لمسح الشات』
+『=vb /(لتبنيد الشخص وعدم قدرته على دخول الروم الصوتي الذي انت فيه باختصار :(باند فويس』
 『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -1374,7 +1375,7 @@ const embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setDescription(`**
  <@${men.id}>
-لقد تم منع من دخول الرومات الصوتيه 
+لقد تم اعطائه باند ميوت بنجاح
 بواسطة : <@${eyad.author.id}> **`)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
           
@@ -1383,9 +1384,10 @@ const Embed11 = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(eyad.guild.name, eyad.guild.iconURL)
 .setDescription(`          <@${men.id}>
-لقد تم منع من دخول الرومات الصوتيه 
+لقد تم اعطائه باند ميوت بنجاح
 بواسطة : <@${eyad.author.id}> `)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
   }
 });
 client.on('ready',  () => {
