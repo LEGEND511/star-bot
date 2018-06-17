@@ -71,7 +71,6 @@ client.on("message", message => {
 『=bc2 /برودكاست بشكل اخر』
 『=cc / لأنشاء الوان بلعدد الي تريده』
 『=clear /لمسح الشات』
-『=setWlc /لتفعيل الترحيب ورؤية انواع الترحيب』
 『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -1438,12 +1437,23 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
   }
 });
 client.on('message', message => {
-    var args = message.content.split(/[ ]+/)
     if(message.content.includes('discord.gg')){
-      if(!message.member.hasPermission('ADMINISTRATOR'))
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
         message.delete()
-    return message.reply(`** يمنع نشر الروابط ! **`)
+    return message.reply(`** ممنوع نشر الروابط :angry: ! **`)
     }
+}
+});
+
+client.on('message', message => {
+    if(message.content.includes('youtube')){
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(`** ممنوع نشر الروابط :angry: ! **`)
+    }
+}
 });
 client.on('message', message => {
      if (message.content === "servers") {
