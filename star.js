@@ -14,12 +14,12 @@ client.on("message", message => {
       .setColor("#ffff00")
       .setThumbnail(message.author.avatarURL)
       .setDescription(`
-╔═══╦════╦═══╦═══╗────╔══╗╔═══╦════╗
-║╔═╗║╔╗╔╗║╔═╗║╔═╗║────║╔╗║║╔═╗║╔╗╔╗║
-║╚══╬╝║║╚╣║─║║╚═╝║────║╚╝╚╣║─║╠╝║║╚╝
-╚══╗║─║║─║╚═╝║╔╗╔╝╔══╗║╔═╗║║─║║─║║
-║╚═╝║─║║─║╔═╗║║║╚╗╚══╝║╚═╝║╚═╝║─║║
-╚═══╝─╚╝─╚╝─╚╩╝╚═╝────╚═══╩═══╝─╚╝
+╭━━━╮╭╮╱╱╱╱╱╭━━╮╱╱╱╭╮
+┃╭━╮┣╯╰╮╱╱╱╱┃╭╮┃╱╱╭╯╰╮
+┃╰━━╋╮╭╋━━┳━┫╰╯╰┳━┻╮╭╯
+╰━━╮┃┃┃┃╭╮┃╭┫╭━╮┃╭╮┃┃
+┃╰━╯┃┃╰┫╭╮┃┃┃╰━╯┃╰╯┃╰╮
+╰━━━╯╰━┻╯╰┻╯╰━━━┻━━┻━╯
 
 ***__وصف عن البوت__***
 **
@@ -1361,7 +1361,7 @@ ctx.font = '35px Aeland';
  
 })
 client.on('message', eyad => {
-  if (eyad.content.startsWith('=vb')) {
+  if (eyad.content.startsWith(prefix +'vb')) {
 if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
 let men = eyad.mentions.users.first()
 let mas = eyad.author
@@ -1375,7 +1375,7 @@ const embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setDescription(`**
  <@${men.id}>
-لقد تم اعطائه باند ميوت بنجاح
+لقد تم اعطائه باند فويس بنجاح
 بواسطة : <@${eyad.author.id}> **`)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
           
@@ -1384,7 +1384,7 @@ const Embed11 = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(eyad.guild.name, eyad.guild.iconURL)
 .setDescription(`          <@${men.id}>
-لقد تم اعطائه باند ميوت بنجاح
+لقد تم اعطائه باند فويس بنجاح
 بواسطة : <@${eyad.author.id}> `)
 .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
