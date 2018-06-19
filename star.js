@@ -1262,8 +1262,6 @@ const Embed11 = new Discord.RichEmbed()
 eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
   }
 });
-const Discord = require('discord.js')
-const bot = new Discord.Client();
 var Canvas = require('canvas')
 var jimp = require('jimp')
 const fs = require('fs');
@@ -1275,7 +1273,7 @@ const fs = require('fs');
      
      
      
-      bot.on('guildMemberAdd', member => {
+      client.on('guildMemberAdd', member => {
       const welcomer = member.guild.channels.find('name', 'welcome');
       if(!welcomer) return;
          moment.locale('ar-ly');
