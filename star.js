@@ -74,6 +74,7 @@ client.on("message", message => {
 『=cc / لأنشاء الوان بلعدد الي تريده』
 『=clear /لمسح الشات』
 『=vb /(لتبنيد الشخص وعدم قدرته على دخول الروم الصوتي الذي انت فيه باختصار :(باند فويس』
+『=unvb /لفك باند الفويس』
 『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -1231,51 +1232,35 @@ client.on('message' , message => {
         message.channel.sendEmbed(embed)
     }
 });
-const translate = require('google-translate-api');
-const Langs = ['afrikaans','albanian','amharic','arabic','armenian','azerbaijani','bangla','basque','belarusian','bengali','bosnian','bulgarian','burmese','catalan','cebuano','chichewa','chinese simplified','chinese traditional','corsican','croatian','czech','danish','dutch','english','esperanto','estonian','filipino','finnish','french','frisian','galician','georgian','german','greek','gujarati','haitian creole','hausa','hawaiian','hebrew','hindi','hmong','hungarian','icelandic','igbo','indonesian','irish','italian','japanese','javanese','kannada','kazakh','khmer','korean','kurdish (kurmanji)','kyrgyz','lao','latin','latvian','lithuanian','luxembourgish','macedonian','malagasy','malay','malayalam','maltese','maori','marathi','mongolian','myanmar (burmese)','nepali','norwegian','nyanja','pashto','persian','polish','portugese','punjabi','romanian','russian','samoan','scottish gaelic','serbian','sesotho','shona','sindhi','sinhala','slovak','slovenian','somali','spanish','sundanese','swahili','swedish','tajik','tamil','telugu','thai','turkish','ukrainian','urdu','uzbek','vietnamese','welsh','xhosa','yiddish','yoruba','zulu'];
-
-client.on('message' , async (message) => {
-       if(message.content.startsWith(prefix + "tra")) {
-              let args = message.content.split(" ").slice(1);
-
-  if (args[0] === undefined) {
-
-    const embed = new Discord.RichEmbed()
-    .setColor("FFFFFF")
-    .setDescription("**ضع لغة وبعض النص لترجمة.**\nUsage: `بريفكس + tra <النص> <اللغة>`");
-
-    return message.channel.send(embed);
-
-  } else {
-
-    if (args[1] === undefined) {
-
-      return message.channel.send('**ارجوك اعطيني شيء لاترجمه.**Usage: `بريفكس + tra <النص> <اللغة>`');
-
-    } else {
-
-      let transArg = args[0].toLowerCase();
- args = args.join(' ').slice(prefix.length);
-      let translation;
-
-      if (!Langs.includes(transArg)) return message.channel.send(`**اللغة غير موجودة.**`);
-      args = args.slice(transArg.length);
-
-      translate(args, {to: transArg}).then(res => {
-
-        const embed = new Discord.RichEmbed()
-        .setDescription(res.text)
-        .setFooter(`english -> ${transArg}`)
-        .setColor(`RANDOM`);
-        return message.channel.send(embed);
-
-      });
-
-    }
-
+client.on('message', eyad => {
+  if (eyad.content.startsWith(prefix +'unvb')) {
+if (!eyad.member.hasPermission("MOVE_MEMBERS")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+let men = eyad.mentions.users.first()
+let mas = eyad.author
+if(!men) return eyad.channel.send('`منشن شخص `');
+eyad.guild.channels.forEach(c => {
+c.overwritePermissions(men.id, {
+          CONNECT: true
+})
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setDescription(`**
+ <@${men.id}>
+لقد تم فك بان الفويس عنه بنجاح
+بواسطة : <@${eyad.author.id}> **`)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+          
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setAuthor(eyad.guild.name, eyad.guild.iconURL)
+.setDescription(`          <@${men.id}>
+لقد تم فك بان فويس عنه بنجاح
+بواسطة : <@${eyad.author.id}> `)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
   }
-
-}
 });
 client.on('ready',  () => {
   console.log('By : Boker');
