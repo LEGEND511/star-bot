@@ -1265,6 +1265,7 @@ eyad.channel.sendEmbed(Embed11).then(eyad => {eyad.delete(20000)})
 var Canvas = require('canvas')
 var jimp = require('jimp')
 const fs = require('fs');
+const moment = require('moment');
      
      
      
