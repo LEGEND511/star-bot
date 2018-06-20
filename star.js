@@ -3,7 +3,23 @@ const sql = require("sqlite");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.on('ready', () => {
-     client.user.setActivity("=help | =invite",{type: 'WATCHING'});
+client.on('ready', function(){
+    var ms = 60000 ;
+    var setGame = ['=help | =invite','=help | =support'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/STAR`);
+    }, ms);
+
+});
   console.log('---------------');
   console.log('STAR Is Online')
   console.log('---------------')
@@ -1445,10 +1461,6 @@ client.on('message', message => {
   .setTimestamp()
 message.channel.sendEmbed(embed);
     }
-});
-client.on('ready', () => {
-     client.user.setActivity("=help | =invite",{type: 'WATCHING'});
-
 });
 const secreT = [
   "**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
