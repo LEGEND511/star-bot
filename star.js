@@ -1131,10 +1131,9 @@ client.on('message', message => {
        Discord.RichEmbed()
        .setColor('RANDOM')
        .setTitle('● Broadcast')
-       .addField('🌟 Server', message.guild.name)
-       .addField('🌟 Sender', message.author.username)
-       .addField('🌟 Message', args)
-       .setImage("https://i.imgur.com/r4NXSSw.png")
+       .addField('● Server', message.guild.name)
+       .addField('● Sender', message.author.username)
+       .addField('● Message', args)
        .setThumbnail(message.author.avatarURL)
        .setFooter(copy, client.user.avatarURL);
     m.send({ embed: bc })
