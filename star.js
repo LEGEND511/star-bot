@@ -1459,7 +1459,7 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-        client.user.setActivity(setActivity[i],`type : WATCHING`
+        client.user.setActivity(setActivity[i],`https://www.twitch.tv/STAR`
     }, ms);
 
 });
