@@ -1494,7 +1494,6 @@ client.on('message', message => {
       }
    let embed = new Discord.RichEmbed()
   .setColor("RANDOM")
-          .setFooter(msg.author.username , msg.author.avatarURL)
           .setThumbnail(`${msg.author.avatarURL}`)
           .setTimestamp()
           .setURL(`${msg.author.avatarURL}`)
