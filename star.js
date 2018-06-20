@@ -1374,7 +1374,15 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
   client.on("message", msg => {
            var prefix = "=";
   if(msg.content.startsWith (prefix + "id")) {
-    if(!msg.channel.guild) return msg.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+    if(!msg.channel.guild) return msg.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');
+               var mentionned = message.mentions.users.first();
+    var mentionavatar;
+      if(mentionned){
+          var mentionavatar = mentionned;
+      } else {
+          var mentionavatar = message.author;
+          
+      }
       const embed = new Discord.RichEmbed();
   embed.addField("🌪  الاسم", `**[ ${msg.author.username}#${msg.author.discriminator} ]**`, true)
           .addField("🆔  الايدي", `**[ ${msg.author.id} ]**`, true)
