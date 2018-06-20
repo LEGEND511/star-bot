@@ -50,7 +50,7 @@ client.on("message", message => {
 『=un /لعكس اي كلمة』
 『=contant/لتواصل مع صاحب البوت』
 『=tag / لزخرفة الكلمات او الجمل بشكل حلو』
-『=tag2 / لزخرفة الكلمات او الجمل بشكل حلو شكل تاني』
+『=tg2 / لزخرفة الكلمات او الجمل بشكل حلو شكل تاني』
 **
 
         ***__🤖 اوامر البوت__***
@@ -1396,7 +1396,7 @@ const codes = {
   
   
   client.on('message' , async message => {
-         if(message.content.startsWith(prefix + "tag2")) {
+         if(message.content.startsWith(prefix + "tg2")) {
             let args = message.content.split(" ").slice(1);
     if (args.length < 1) {
       message.channel.send('You must provide some text to emojify!');
