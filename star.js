@@ -1455,11 +1455,11 @@ client.on('ready', function(){
         if( i == -1 ){
             j = 1;
         }
-        if( i == (setActivity.length)-1 ){
+        if( i == (setGame.length)-1 ){
             j = -1;
         }
         i = i+j;
-        client.user.setActivity(setActivity[i],`https://www.twitch.tv/STAR`
+        client.user.setGame(setGame[i],`https://www.twitch.tv/STAR`
     }, ms);
 
 });
