@@ -1493,14 +1493,17 @@ client.on('message', message => {
           
       }
    let embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-          .setThumbnail(`${msg.author.avatarURL}`)
+  embed.addField("🌪  الاسم", `**[ ${message.author.username}#${message.author.discriminator} ]**`, true)
+          .addField("🆔  الايدي", `**[ ${message.author.id} ]**`, true)
+          .setColor("RANDOM")
+          .setFooter(message.author.username , message.author.avatarURL)
+          .setThumbnail(`${message.author.avatarURL}`)
           .setTimestamp()
-          .setURL(`${msg.author.avatarURL}`)
-          .addField('🕵  الحالة', `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
-          .addField('🛰   يلعب', `**[ ${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name} ]**`, true)
-          .addField('🎖  الرتب', `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
-          .addField('🤖  هل هو بوت', `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true);
+          .setURL(`${message.author.avatarURL}`)
+          .addField('🕵  الحالة', `**[ ${message.author.presence.status.toUpperCase()} ]**`, true)
+          .addField('🛰   يلعب', `**[ ${message.author.presence.game === null ? "No Game" : message.author.presence.game.name} ]**`, true)
+          .addField('🎖  الرتب', `**[ ${message.member.roles.filter(r => r.name).size} ]**`, true)
+          .addField('🤖  هل هو بوت', `**[ ${message.author.bot.toString().toUpperCase()} ]**`, true);
      
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
