@@ -3,7 +3,7 @@ const sql = require("sqlite");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.on('ready', () => {
-  client.user.setGame(` By Boker #8956 .`,'https://www.twitch.tv/STAR');
+     client.user.setActivity("=help | =invite",{type: 'WATCHING'});
   console.log('---------------');
   console.log('STAR Is Online')
   console.log('---------------')
@@ -1446,21 +1446,8 @@ client.on('message', message => {
 message.channel.sendEmbed(embed);
     }
 });
-client.on('ready', function(){
-    var ms = 60000 ;
-    var setGame = ['=help','=help | =invite','=help | =support'];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`https://www.twitch.tv/STAR`
-    }, ms);
+client.on('ready', () => {
+     client.user.setActivity("=help | =invite",{type: 'WATCHING'});
 
 });
 const secreT = [
