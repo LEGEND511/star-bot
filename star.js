@@ -3,6 +3,7 @@ const sql = require("sqlite");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 client.on('ready', () => {
+  client.user.setGame(`STAR-BOT | =help .`,'https://www.twitch.tv/STAR');
   console.log('---------------');
   console.log('STAR Is Online')
   console.log('---------------')
