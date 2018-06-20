@@ -1375,7 +1375,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
            var prefix = "=";
   if(msg.content.startsWith (prefix + "id")) {
     if(!msg.channel.guild) return msg.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');
-               if mentionned = message.mentions.users.first();
+               if user = message.mentions.users.first();
     var mentionavatar;
       if(mentionned){
           var mentionavatar = mentionned;
