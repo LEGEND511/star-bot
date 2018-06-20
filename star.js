@@ -1494,12 +1494,14 @@ client.on('message', message => {
       }
    let embed = new Discord.RichEmbed()
   .setColor("RANDOM")
-   .setThumbnail(`${mentionavatar.avatarURL}`)
-  .addField("Name:",`<@` + `${mentionavatar.id}` + `>`, true)
-  .addField('Discrim:',"#" +  `${mentionavatar.discriminator}`, true)
-   .addField("ID:", "**[" + `${mentionavatar.id}` + "]**", true)
-  .addField("Create At:", "**[" + `${mentionavatar.createdAt}` + "]**", true)
-     
+          .setFooter(msg.author.username , msg.author.avatarURL)
+          .setThumbnail(`${msg.author.avatarURL}`)
+          .setTimestamp()
+          .setURL(`${msg.author.avatarURL}`)
+          .addField('🕵  الحالة', `**[ ${msg.author.presence.status.toUpperCase()} ]**`, true)
+          .addField('🛰   يلعب', `**[ ${msg.author.presence.game === null ? "No Game" : msg.author.presence.game.name} ]**`, true)
+          .addField('🎖  الرتب', `**[ ${msg.member.roles.filter(r => r.name).size} ]**`, true)
+          .addField('🤖  هل هو بوت', `**[ ${msg.author.bot.toString().toUpperCase()} ]**`, true);
      
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
