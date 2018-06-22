@@ -760,7 +760,7 @@ const Love = [  "**احبك / عدد قطرات المـــطر والشجر و
  .setThumbnail(client.user.avatarURL)     
  .setDescription("Add me" + `
  **
-رابط البوت | https://discordapp.com/oauth2/authorize?client_id=450279147911249923&permissions=2080374975&scope=bot
+رابط البوت | https://discordapp.com/api/oauth2/authorize?client_id=459855465162080267&permissions=21469585838&scope=bot
  **
 `);
   message.author.sendEmbed(embed);
