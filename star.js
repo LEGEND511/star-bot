@@ -125,7 +125,7 @@ client.on('message', message => {
 if (message.content === '=help') {
          let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)    
-      .addField("** مبرمج البوت :wrench: **","**@!      ʙɵᴋᴇʀ ☕🇵🇸#8956 و @Mulham¹².#0001  **")
+      .addField("** مبرمج البوت :wrench: **","**@!     Rando ☕🇵🇸#6966 و @Mulham¹².#0001  **")
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
     }
@@ -189,7 +189,7 @@ const xNiTRoZ = new Discord.RichEmbed()
 .setAuthor(message.author.username , message.author.avatarURL)
 .setColor("#070000").setTimestamp()
 .setTitle(message.guild.name,message.guild.iconURL)
-.addField(":crown: اونر السيرفر",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
+.addField(":crown: اونر السيرفر",`${message.guild.owner}`)
 .addField(":id: اي دي السيرفر",`${message.guild.id}`,true)
 .addField("**:date: انشأ في**", message.guild.createdAt.toLocaleString(),true)
 .addField(":busts_in_silhouette: الاعضاء " + ` ${message.guild.memberCount} `,"Online "+`[ ${message.guild.members.filter(m=>m.presence.status == "online","idle","dnd").size} ]`+ ","+"Offline "+`[ ${message.guild.members.filter(m=>m.presence.status == "offline").size} ]`,true)
