@@ -1441,7 +1441,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**�
 });
     client.on('message', msg => { 
       if (msg.content.startsWith(prefix + 'code-js')) {
-           if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**يجب كتابه كود**');
+           if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('**يجب كتابه كود**');
          let args = msg.content.split(" ").slice(1);
         if (!args[1]);
         if (msg.guild.channels.find('name', 'code-js')) {
