@@ -12,7 +12,6 @@ client.on("message", message => {
  if (message.content === "=help") {
   const embed = new Discord.RichEmbed() 
       .setColor("#ffff00")
-      .setThumbnail(message.author.avatarURL)
       .setDescription(`
 ╭━━━╮╭╮╱╱╱╱╱╭━━╮╱╱╱╭╮
 ┃╭━╮┣╯╰╮╱╱╱╱┃╭╮┃╱╱╭╯╰╮
@@ -32,7 +31,19 @@ client.on("message", message => {
 -:warning: صيانه كل يوم
 -:dollar: مجاني بل كامل
 **
+`)
 
+
+message.author.sendEmbed(embed)
+
+}
+});
+client.on("message", message => {
+ if (message.content === "=help") {
+  const embed = new Discord.RichEmbed() 
+      .setColor("#ffff00")
+      .setThumbnail(message.author.avatarURL)
+      .setDescription(`
         ***__:globe_with_meridians: الأوامر العامه__***
 **
 『=id / معلومات عن حسابك』
