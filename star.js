@@ -76,6 +76,8 @@ client.on("message", message => {
 『=clear /لمسح الشات』
 『=vb /(لتبنيد الشخص وعدم قدرته على دخول الروم الصوتي الذي انت فيه باختصار :(باند فويس』
 『=unvb /لفك باند الفويس』
+『=mutechannel /لقفل الشات وعدم قدرة احد على الكتابة』
+『=unmutechannel /لفتح الشات』
 『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -1423,6 +1425,28 @@ const codes = {
   );
   };
   });
+client.on('message', message => {
+if (message.content === prefix + "mutechannel") {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**❎| `[MANAGE_MESSAGES]` لا يوجد لديك صلاحية**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("تم قفل الشات :white_check_mark: ")
+           });
+}
+  if (message.content === prefix + "unmutechannel") {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**❎| `[MANAGE_MESSAGES]` لا يوجد لديك صلاحية**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("تم فتح الشات :white_check_mark: ")
+           });
+}
+
+
+});
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
