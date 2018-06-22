@@ -60,6 +60,12 @@ client.on("message", message => {
 『=members / حاله الاعضاء』
 『=stats / معلومات عن البوت و كم صار للبوت شغال』
 **   
+
+        ***__🛠 اوامر خصوصية للمبرمجين__***
+**
+『=code-js / لأرسال البوت الاكواد بدل عنك』
+『code-js / لتفعيل ارسال البوت الاكواد بدل عنك يجب عمل شات بأسم』
+**   
         
         ***__:radioactive: أوامر الأداره__***
 **
@@ -1433,6 +1439,20 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**�
 
 
 });
+    client.on('message', msg => { 
+      if (msg.content.startsWith(prefix + 'code-js')) {
+           if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('   **يجب كتابه كود
+ **');
+         let args = msg.content.split(" ").slice(1);
+        if (!args[1]);
+        if (msg.guild.channels.find('name', 'code-js')) {
+          msg.guild.channels.find('name', 'code-js').send(`
+         مرسل الكود : ${msg.member}
+         **${args.join(" ").split(msg.mentions.members.first()).slice(' ')}**
+        `)
+        }
+      }
+      });
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
