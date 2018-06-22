@@ -1453,6 +1453,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**â
         }
       }
       });
+
 client.on('ready',  () => {
   console.log('By : Boker');
   console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
