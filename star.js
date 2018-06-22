@@ -47,7 +47,6 @@ client.on("message", message => {
 『=dt / يعرض الوقت في الامارات و مكه المكرمه و مصر و التاريخ』
 『=level / لمعرفة لفلك』
 『=points / لمعرفة نقاطك』
-『=un /لعكس اي كلمة』
 『=contant/لتواصل مع صاحب البوت』
 『=tag / لزخرفة الكلمات او الجمل بشكل حلو』
 『=tg2 / لزخرفة الكلمات او الجمل بشكل حلو شكل تاني』
@@ -76,8 +75,8 @@ client.on("message", message => {
 『=clear /لمسح الشات』
 『=vb /(لتبنيد الشخص وعدم قدرته على دخول الروم الصوتي الذي انت فيه باختصار :(باند فويس』
 『=unvb /لفك باند الفويس』
-『=mutechannel /لقفل الشات وعدم قدرة احد على الكتابة』
-『=unmutechannel /لفتح الشات』
+『=mc /لقفل الشات وعدم قدرة احد على الكتابة』
+『=umc /لفتح الشات』
 『=move all /لسحب جميع الأعضاء لرومك الصوتي』
 『log /لتفعيل اللوق يجب عمل شات بأسم』
 **
@@ -864,7 +863,7 @@ let v1 = new Discord.RichEmbed()
   v1.setTimestamp(new Date())
   v1.setColor("RED")
   v1.setDescription('***__ Collecting Data __***')
-  v1.setFooter("~ | StarBot |") 
+  v1.setFooter("= | StarBot |") 
 let heroo = new Discord.RichEmbed()
 .setColor('RANDOM')
 .setTimestamp(new Date())
@@ -1038,19 +1037,6 @@ client.on('messageDelete', message => {
        .setTimestamp();
      channel.send({embed:embed});
 
-});
-client.on('message', message => {
-    if (message.author.bot) return;
-    if (message.content.indexOf('=un') === 0) {
-        var text = message.content.substring(1);
-        var reversed = '';
-        var i = text.length;
-        while (i > 0) {
-            reversed += text.substring(i - 1, i);
-            i--;
-        }
-        message.reply(reversed);
-    }
 });
 client.on('message', ra3d => {
 var prefix = "=";
@@ -1426,7 +1412,7 @@ const codes = {
   };
   });
 client.on('message', message => {
-if (message.content === prefix + "mutechannel") {
+if (message.content === prefix + "mc") {
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**❎| `[MANAGE_MESSAGES]` لا يوجد لديك صلاحية**');
            message.channel.overwritePermissions(message.guild.id, {
          SEND_MESSAGES: false
@@ -1435,7 +1421,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**�
                message.reply("تم قفل الشات :white_check_mark: ")
            });
 }
-  if (message.content === prefix + "unmutechannel") {
+  if (message.content === prefix + "umc") {
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**❎| `[MANAGE_MESSAGES]` لا يوجد لديك صلاحية**');
            message.channel.overwritePermissions(message.guild.id, {
          SEND_MESSAGES: true
