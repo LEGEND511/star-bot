@@ -5,7 +5,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
   client.user.setGame(`STAR-BOT | =help .`,'https://www.twitch.tv/STAR');
   console.log('-----------------')
-  console.log('StarBot Is Online')
+  console.log('StarBot🌟 Is Online')
   console.log('-----------------')
 });
 client.on("message", message => {
