@@ -1329,11 +1329,11 @@ const moment = require('moment');
                               ctx.drawImage(ava, 152, 27, 95, 95);
 
                               ctx.font = '20px Georgia';
-                              ctx.fontSize = '15px';
+                              ctx.fontSize = '5px';
                               ctx.fillStyle = "#FFFFFF";
                               ctx.textAlign = "center";
                                                          ctx.fillText(member.user.username, 200, 154);
-                                    ctx.fillText(`You Are Member Number${member.guild.memberCount} `
+                                    ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
                               , 200, 180);
           
 
