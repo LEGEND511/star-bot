@@ -733,7 +733,7 @@ const Love = [  "**احبك / عدد قطرات المـــطر والشجر و
 });
 client.on('message', message => {
 
-    if (message.content.startsWith(prefix + "invite")) {        
+    if (message.content.startsWith(prefix + "inv")) {        
     const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription(" :white_check_mark: تم ارسال الرابط على الخاص ")
@@ -747,7 +747,7 @@ client.on('message', message => {
 });
  client.on('message' , message => {
 
-    if (message.content.startsWith(prefix + "invite")) {  
+    if (message.content.startsWith(prefix + "inv")) {  
         if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
      const embed = new Discord.RichEmbed()
  .setColor("RANDOM")
@@ -1741,7 +1741,7 @@ const secreT = [
 });
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['=help | =invite','=help | =support'];
+    var setGame = ['=help | =inv','=help | =support'];
     var i = -1;
     var j = 0;
     setInterval(function (){
