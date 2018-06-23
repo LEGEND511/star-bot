@@ -47,7 +47,8 @@ client.on("message", message => {
         ***__:globe_with_meridians: الأوامر العامه__***
 **
 『=id / معلومات عن حسابك』
-『=user / لمعرفة متى دخلت الدسكور والسيرفر وكم دعيت شخص للسيرفر』
+『=user / لمعرفة متى دخلت الدسكورد والسيرفر』
+『=invites / لمعرفة عدد الدعوات』
 『=embed / يكرر كلامك بمبيد』
 『=say / ليكرر كلامك البوت』
 『=roles / يعرض لك الرتب و عددها』
@@ -1463,6 +1464,16 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**�
         }
       }
       });
+client.on('message', message => {
+   if(message.content.startsWith(prefix + "invites")) {
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+message.channel.send(`${user} has ${inviteCount} invites.`);
+});
+  }
+});
 client.on('ready', () => {
   console.log('----------------------------------------------');
   console.log(`Logged in as * [ " ${client.user.username} " ]`);
