@@ -1504,9 +1504,9 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-	    if (message.content == prefix + "ركب") {    
+        if (message.content == prefix + "ركب") {    
         var x = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ا ك س ي ف و', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ا ك س ي ف و ذ ا ب ي س ت'];
-		var x2 = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
+        var x2 = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
         var x3 = Math.floor(Math.random()*x.length)
         message.channel.send(`ركب الكلمة  الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
             var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
@@ -1530,9 +1530,9 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-	    if (message.content == prefix + "رياضيات") {    
+       if (message.content == prefix + "رياضيات") {    
         var x = ['50×50', '1000000×1', '89×10', '90×5', '30×3', '10×10', '1000×1000', '44,5+44,5'];
-		var x2 = ['2500', '1000000', '890', '450', '90', '100', '1000000' , '89'];
+        var x2 = ['2500', '1000000', '890', '450', '90', '100', '1000000' , '89'];
         var x3 = Math.floor(Math.random()*x.length)
         message.channel.send(`ركب الكلمة  الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
             var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
@@ -1556,8 +1556,7 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
-	
-  if (message.content == prefix + "عواصم") {
+ if (message.content == prefix + "عواصم") {
         var x = ['اليمن', 'مصر', 'الجزائر', 'السعودية', 'الصومال', 'العراق' , 'الامارات' , 'سوريا' , 'المغرب'];
         var x2 = ['صنعاء', 'القاهرة', 'الجزائر', 'الرياض', 'الخرطوم', 'بغداد', 'ابو ظبي','دمشق ','الر باط'];
         var x3 = Math.floor(Math.random()*x.length)
@@ -1635,6 +1634,7 @@ client.on('message', message => {
     fs.writeFile('points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     });
+});
 client.on('ready', () => {
   console.log('----------------------------------------------');
   console.log(`Logged in as * [ " ${client.user.username} " ]`);
