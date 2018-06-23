@@ -1328,13 +1328,13 @@ const moment = require('moment');
                               ava.src = buf;
                               ctx.drawImage(ava, 152, 27, 95, 95);
 
-                              ctx.font = '20px Arial Bold';
+                              ctx.font = '20px Georgia';
                               ctx.fontSize = '15px';
                               ctx.fillStyle = "#FFFFFF";
                               ctx.textAlign = "center";
                                                          ctx.fillText(member.user.username, 200, 154);
-                                    ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
-                              , 200, 190);
+                                    ctx.fillText(`You Are Member Number${member.guild.memberCount} `
+                              , 200, 180);
           
 
  welcomer.sendFile(canvas.toBuffer())
