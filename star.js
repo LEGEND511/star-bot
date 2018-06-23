@@ -1471,10 +1471,12 @@ let points = JSON.parse(fs.readFileSync('points.json', 'utf8'));
 client.on('message', message => {
     if (!points[message.author.id]) points[message.author.id] = {points : 0}
     if (message.content == prefix + 'نقاطي'){
+         let embed = new Discord.RichEmbed()
         .setAuthor(message.author.username,message.author.avatarURL)
         .addField(`نقاطك : ${points[message.author.id].points}`,'By : Xivo',   true)
         .setColor('RANDOM')
         .setFooter('العاب وبس', client.user.avatarURL);
+	message.channel.send({embed});
     };
     if (message.content == prefix + "فكك") {    
         var x = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
