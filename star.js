@@ -1473,9 +1473,9 @@ client.on('message', message => {
     if (message.content == prefix + 'نقاطي'){
          let embed = new Discord.RichEmbed()
         .setAuthor(message.author.username,message.author.avatarURL)
-        .addField(`نقاطك : ${points[message.author.id].points}`,'By : Xivo',   true)
+        .addField(`نقاطك : ${points[message.author.id].points}`,'By : Rando³².🇵🇸#6966',   true)
         .setColor('RANDOM')
-        .setFooter('العاب وبس', client.user.avatarURL);
+        .setFooter('StarBot-Games', client.user.avatarURL);
 	message.channel.send({embed});
     };
     if (message.content == prefix + "فكك") {    
