@@ -752,9 +752,23 @@ const Love = [  "**احبك / عدد قطرات المـــطر والشجر و
   message.author.sendEmbed(embed);
    }
 });
+client.on('message', message => {
+
+    if (message.content.startsWith(prefix + "invite")) {        
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(" :white_check_mark: تم ارسال الرابط على الخاص ")
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+                .setAuthor(message.guild.name, message.guild.iconURL)
+      message.author.sendEmbed(Embed11)
+    }
+ 
+});
  client.on('message' , message => {
 
-    if (message.content === "=invite") {
+    if (message.content.startsWith(prefix + "invite")) {  
         if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
      const embed = new Discord.RichEmbed()
  .setColor("RANDOM")
