@@ -1333,7 +1333,8 @@ const moment = require('moment');
                               ctx.fillStyle = "#FFFFFF";
                               ctx.textAlign = "center";
                                                          ctx.fillText(member.user.username, 200, 154);
-
+                                    ctx.fillText(`انت العضو رقم${member.guild.memberCount} `
+                              , 200, 190);
           
 
  welcomer.sendFile(canvas.toBuffer())
