@@ -48,7 +48,7 @@ client.on("message", message => {
 **
 『=id / معلومات عن حسابك』
 『=user / لمعرفة متى دخلت الدسكورد والسيرفر』
-『=invites / لمعرفة عدد الدعوات』
+『=ins / لمعرفة عدد الدعوات』
 『=embed / يكرر كلامك بمبيد』
 『=say / ليكرر كلامك البوت』
 『=roles / يعرض لك الرتب و عددها』
@@ -68,7 +68,7 @@ client.on("message", message => {
 **
 『=ping / يعرض لك سرعه اتصال البوت』
 『=support / سيرفر الدعم القني و المساعده』
-『=invite / اضافه البوت』
+『=inv / اضافه البوت』
 『=members / حاله الاعضاء』
 『=stats / معلومات عن البوت و كم صار للبوت شغال』
 **   
@@ -1458,7 +1458,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('`**�
       }
       });
 client.on('message', message => {
-   if(message.content.startsWith(prefix + "invites")) {
+   if(message.content.startsWith(prefix + "ins")) {
     message.guild.fetchInvites().then(invs => {
       let user = message.mentions.users.first() || message.author
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
