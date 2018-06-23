@@ -1470,7 +1470,9 @@ client.on('message', message => {
       let user = message.mentions.users.first() || message.author
       let personalInvites = invs.filter(i => i.inviter.id === user.id);
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+	    let embed = new Discord.RichEmbed()
 message.channel.send(`${user} has ${inviteCount} invites.`);
+	    message.channel.send({embed});
 });
   }
 });
