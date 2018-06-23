@@ -1735,7 +1735,7 @@ const secreT = [
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
- .addField('Star-BOT' ,
+ .addField(DRK-BOT' ,
   `${secreT[Math.floor(Math.random() * secreT.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
@@ -1743,7 +1743,7 @@ const secreT = [
 });
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['=help | '!help | !support'];
+    var setGame = ['!help | '!help | !support'];
     var i = -1;
     var j = 0;
     setInterval(function (){
