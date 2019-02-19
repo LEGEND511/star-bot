@@ -1754,7 +1754,7 @@ client.on('ready', function(){
             j = -1;
         }
         i = i+j;
-        client.user.setGame(setGame[i],``https://www.instagram.com/Abood_naimat0/``);
+        client.user.setGame(setGame[i],);
     }, ms);
 
 });
