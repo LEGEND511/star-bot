@@ -1758,4 +1758,5 @@ client.on('ready', function(){
     }, ms);
 
 });
+
 client.login(process.env.BOT_TOKEN);
