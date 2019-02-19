@@ -1743,7 +1743,7 @@ const secreT = [
 });
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['!help | ''!help | !support'];
+    var setGame = ['!help | 'help | !support'];
     var i = -1;
     var j = 0;
     setInterval(function (){
